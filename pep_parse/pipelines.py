@@ -24,8 +24,7 @@ class PepParsePipeline:
     def close_spider(self, spider):
         DIR_RESULT.mkdir(exist_ok=True)
         file_status = BASE_DIR / 'results' / f'status_summary_{DATETIME}.csv'
-        with open(
-            file_status, mode='w', encoding='utf-8', newline='') as file:
+        with open(file_status, mode='w', encoding='utf-8', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(('Статус', 'Количество'))
             writer.writerows(self.status_count.items())
